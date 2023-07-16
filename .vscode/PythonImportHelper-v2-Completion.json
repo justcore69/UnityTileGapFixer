@@ -1,5 +1,14 @@
 [
     {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
         "label": "Image",
         "importPath": "PIL",
         "description": "PIL",
@@ -12,7 +21,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def paste_images(background, paste, x, y):\n    new_image = Image.new(\"RGBA\", background.size)\n    new_image.paste(background, (0, 0))\n    new_image.paste(paste, (x, y), mask=paste)\n    return new_image\n# Open the image\nimage = Image.open(\"input.png\")\n# Define the tile size and spacing\ntile_size = 16\nspacing = 2",
+        "peekOfCode": "def paste_images(background, paste, x, y):\n    new_image = Image.new(\"RGBA\", background.size)\n    new_image.paste(background, (0, 0))\n    new_image.paste(paste, (x, y), mask=paste)\n    return new_image\n# Open the tileset input image\nimage = Image.open(\"input.png\")\ntile_size = 16\nspacing = 2\ntotal_tile_size = tile_size + spacing",
         "detail": "main",
         "documentation": {}
     },
@@ -21,7 +30,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "image = Image.open(\"input.png\")\n# Define the tile size and spacing\ntile_size = 16\nspacing = 2\n# Calculate the number of tiles horizontally and vertically\nnum_tiles_horizontal = image.width // tile_size\nnum_tiles_vertical = image.height // tile_size\n# Calculate the new image size with spacing\nnew_width = (num_tiles_horizontal * (tile_size + spacing)) + spacing\nnew_height = (num_tiles_vertical * (tile_size + spacing)) + spacing",
+        "peekOfCode": "image = Image.open(\"input.png\")\ntile_size = 16\nspacing = 2\ntotal_tile_size = tile_size + spacing\nnum_tiles_horizontal = image.width // tile_size\nnum_tiles_vertical = image.height // tile_size\nprint(num_tiles_vertical)\nprint(num_tiles_horizontal)\nnew_width = (num_tiles_horizontal * (tile_size + spacing)) + spacing\nnew_height = (num_tiles_vertical * (tile_size + spacing)) + spacing",
         "detail": "main",
         "documentation": {}
     },
@@ -30,7 +39,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "tile_size = 16\nspacing = 2\n# Calculate the number of tiles horizontally and vertically\nnum_tiles_horizontal = image.width // tile_size\nnum_tiles_vertical = image.height // tile_size\n# Calculate the new image size with spacing\nnew_width = (num_tiles_horizontal * (tile_size + spacing)) + spacing\nnew_height = (num_tiles_vertical * (tile_size + spacing)) + spacing\n# Create a new image with the required size and RGBA mode\nnew_image = Image.new(\"RGBA\", (new_width, new_height))",
+        "peekOfCode": "tile_size = 16\nspacing = 2\ntotal_tile_size = tile_size + spacing\nnum_tiles_horizontal = image.width // tile_size\nnum_tiles_vertical = image.height // tile_size\nprint(num_tiles_vertical)\nprint(num_tiles_horizontal)\nnew_width = (num_tiles_horizontal * (tile_size + spacing)) + spacing\nnew_height = (num_tiles_vertical * (tile_size + spacing)) + spacing\nnew_image = Image.new(\"RGBA\", (new_width, new_height))",
         "detail": "main",
         "documentation": {}
     },
@@ -39,7 +48,16 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "spacing = 2\n# Calculate the number of tiles horizontally and vertically\nnum_tiles_horizontal = image.width // tile_size\nnum_tiles_vertical = image.height // tile_size\n# Calculate the new image size with spacing\nnew_width = (num_tiles_horizontal * (tile_size + spacing)) + spacing\nnew_height = (num_tiles_vertical * (tile_size + spacing)) + spacing\n# Create a new image with the required size and RGBA mode\nnew_image = Image.new(\"RGBA\", (new_width, new_height))\n# Iterate over the tiles and move them with spacing",
+        "peekOfCode": "spacing = 2\ntotal_tile_size = tile_size + spacing\nnum_tiles_horizontal = image.width // tile_size\nnum_tiles_vertical = image.height // tile_size\nprint(num_tiles_vertical)\nprint(num_tiles_horizontal)\nnew_width = (num_tiles_horizontal * (tile_size + spacing)) + spacing\nnew_height = (num_tiles_vertical * (tile_size + spacing)) + spacing\nnew_image = Image.new(\"RGBA\", (new_width, new_height))\nfor i in range(num_tiles_horizontal):",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "total_tile_size",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "total_tile_size = tile_size + spacing\nnum_tiles_horizontal = image.width // tile_size\nnum_tiles_vertical = image.height // tile_size\nprint(num_tiles_vertical)\nprint(num_tiles_horizontal)\nnew_width = (num_tiles_horizontal * (tile_size + spacing)) + spacing\nnew_height = (num_tiles_vertical * (tile_size + spacing)) + spacing\nnew_image = Image.new(\"RGBA\", (new_width, new_height))\nfor i in range(num_tiles_horizontal):\n    for j in range(num_tiles_vertical):",
         "detail": "main",
         "documentation": {}
     },
@@ -48,7 +66,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "num_tiles_horizontal = image.width // tile_size\nnum_tiles_vertical = image.height // tile_size\n# Calculate the new image size with spacing\nnew_width = (num_tiles_horizontal * (tile_size + spacing)) + spacing\nnew_height = (num_tiles_vertical * (tile_size + spacing)) + spacing\n# Create a new image with the required size and RGBA mode\nnew_image = Image.new(\"RGBA\", (new_width, new_height))\n# Iterate over the tiles and move them with spacing\nfor i in range(num_tiles_horizontal):\n    for j in range(num_tiles_vertical):",
+        "peekOfCode": "num_tiles_horizontal = image.width // tile_size\nnum_tiles_vertical = image.height // tile_size\nprint(num_tiles_vertical)\nprint(num_tiles_horizontal)\nnew_width = (num_tiles_horizontal * (tile_size + spacing)) + spacing\nnew_height = (num_tiles_vertical * (tile_size + spacing)) + spacing\nnew_image = Image.new(\"RGBA\", (new_width, new_height))\nfor i in range(num_tiles_horizontal):\n    for j in range(num_tiles_vertical):\n        x = i * tile_size",
         "detail": "main",
         "documentation": {}
     },
@@ -57,7 +75,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "num_tiles_vertical = image.height // tile_size\n# Calculate the new image size with spacing\nnew_width = (num_tiles_horizontal * (tile_size + spacing)) + spacing\nnew_height = (num_tiles_vertical * (tile_size + spacing)) + spacing\n# Create a new image with the required size and RGBA mode\nnew_image = Image.new(\"RGBA\", (new_width, new_height))\n# Iterate over the tiles and move them with spacing\nfor i in range(num_tiles_horizontal):\n    for j in range(num_tiles_vertical):\n        x = i * tile_size",
+        "peekOfCode": "num_tiles_vertical = image.height // tile_size\nprint(num_tiles_vertical)\nprint(num_tiles_horizontal)\nnew_width = (num_tiles_horizontal * (tile_size + spacing)) + spacing\nnew_height = (num_tiles_vertical * (tile_size + spacing)) + spacing\nnew_image = Image.new(\"RGBA\", (new_width, new_height))\nfor i in range(num_tiles_horizontal):\n    for j in range(num_tiles_vertical):\n        x = i * tile_size\n        y = j * tile_size",
         "detail": "main",
         "documentation": {}
     },
@@ -66,7 +84,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "new_width = (num_tiles_horizontal * (tile_size + spacing)) + spacing\nnew_height = (num_tiles_vertical * (tile_size + spacing)) + spacing\n# Create a new image with the required size and RGBA mode\nnew_image = Image.new(\"RGBA\", (new_width, new_height))\n# Iterate over the tiles and move them with spacing\nfor i in range(num_tiles_horizontal):\n    for j in range(num_tiles_vertical):\n        x = i * tile_size\n        y = j * tile_size\n        tile = image.crop((x, y, x + tile_size, y + tile_size))",
+        "peekOfCode": "new_width = (num_tiles_horizontal * (tile_size + spacing)) + spacing\nnew_height = (num_tiles_vertical * (tile_size + spacing)) + spacing\nnew_image = Image.new(\"RGBA\", (new_width, new_height))\nfor i in range(num_tiles_horizontal):\n    for j in range(num_tiles_vertical):\n        x = i * tile_size\n        y = j * tile_size\n        tile = image.crop((x, y, x + tile_size, y + tile_size))\n        new_x = (i * (tile_size + spacing)) + spacing\n        new_y = (j * (tile_size + spacing)) + spacing",
         "detail": "main",
         "documentation": {}
     },
@@ -75,7 +93,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "new_height = (num_tiles_vertical * (tile_size + spacing)) + spacing\n# Create a new image with the required size and RGBA mode\nnew_image = Image.new(\"RGBA\", (new_width, new_height))\n# Iterate over the tiles and move them with spacing\nfor i in range(num_tiles_horizontal):\n    for j in range(num_tiles_vertical):\n        x = i * tile_size\n        y = j * tile_size\n        tile = image.crop((x, y, x + tile_size, y + tile_size))\n        new_x = (i * (tile_size + spacing)) + spacing",
+        "peekOfCode": "new_height = (num_tiles_vertical * (tile_size + spacing)) + spacing\nnew_image = Image.new(\"RGBA\", (new_width, new_height))\nfor i in range(num_tiles_horizontal):\n    for j in range(num_tiles_vertical):\n        x = i * tile_size\n        y = j * tile_size\n        tile = image.crop((x, y, x + tile_size, y + tile_size))\n        new_x = (i * (tile_size + spacing)) + spacing\n        new_y = (j * (tile_size + spacing)) + spacing\n        new_image.paste(tile, (new_x, new_y))",
         "detail": "main",
         "documentation": {}
     },
@@ -84,7 +102,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "new_image = Image.new(\"RGBA\", (new_width, new_height))\n# Iterate over the tiles and move them with spacing\nfor i in range(num_tiles_horizontal):\n    for j in range(num_tiles_vertical):\n        x = i * tile_size\n        y = j * tile_size\n        tile = image.crop((x, y, x + tile_size, y + tile_size))\n        new_x = (i * (tile_size + spacing)) + spacing\n        new_y = (j * (tile_size + spacing)) + spacing\n        new_image.paste(tile, (new_x, new_y))",
+        "peekOfCode": "new_image = Image.new(\"RGBA\", (new_width, new_height))\nfor i in range(num_tiles_horizontal):\n    for j in range(num_tiles_vertical):\n        x = i * tile_size\n        y = j * tile_size\n        tile = image.crop((x, y, x + tile_size, y + tile_size))\n        new_x = (i * (tile_size + spacing)) + spacing\n        new_y = (j * (tile_size + spacing)) + spacing\n        new_image.paste(tile, (new_x, new_y))\nox, oy = new_image.size",
         "detail": "main",
         "documentation": {}
     },
@@ -93,7 +111,16 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "outline_image = new_image.crop((2, 2, ox-2, oy-2))\noutput_image = Image.new(\"RGBA\", new_image.size, (0, 0, 0, 0))\noutput_image = paste_images(output_image, outline_image, 1, 1)#up left \noutput_image = paste_images(output_image, outline_image, 3, 1)#up right\noutput_image = paste_images(output_image, outline_image, 3, 3)#down right\noutput_image = paste_images(output_image, outline_image, 1, 3)#down left\noutput_image = paste_images(output_image, outline_image, 2, 1)#up\noutput_image = paste_images(output_image, outline_image, 2, 3)#down\noutput_image = paste_images(output_image, outline_image, 1, 2)#left\noutput_image = paste_images(output_image, outline_image, 3, 2)#right",
+        "peekOfCode": "outline_image = new_image.crop((spacing, spacing, ox-spacing, oy-spacing))\noutline_image.save(\"outline.png\")\ntiles_with_empty_pixels = []\nif not os.path.exists(\"tiles\"):\n    os.makedirs(\"tiles\")\n# Iterate over each tile\nfor j in range(num_tiles_vertical):\n    for i in range(num_tiles_horizontal):\n        x = i * total_tile_size\n        y = j * total_tile_size",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "tiles_with_empty_pixels",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "tiles_with_empty_pixels = []\nif not os.path.exists(\"tiles\"):\n    os.makedirs(\"tiles\")\n# Iterate over each tile\nfor j in range(num_tiles_vertical):\n    for i in range(num_tiles_horizontal):\n        x = i * total_tile_size\n        y = j * total_tile_size\n        tile = outline_image.crop((x, y, x + tile_size, y + tile_size))\n        tile.save(f\"tiles/tile_{int(x/total_tile_size)}_{int(y/total_tile_size)}.png\")",
         "detail": "main",
         "documentation": {}
     },
@@ -102,7 +129,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "output_image = Image.new(\"RGBA\", new_image.size, (0, 0, 0, 0))\noutput_image = paste_images(output_image, outline_image, 1, 1)#up left \noutput_image = paste_images(output_image, outline_image, 3, 1)#up right\noutput_image = paste_images(output_image, outline_image, 3, 3)#down right\noutput_image = paste_images(output_image, outline_image, 1, 3)#down left\noutput_image = paste_images(output_image, outline_image, 2, 1)#up\noutput_image = paste_images(output_image, outline_image, 2, 3)#down\noutput_image = paste_images(output_image, outline_image, 1, 2)#left\noutput_image = paste_images(output_image, outline_image, 3, 2)#right\noutput_image = paste_images(output_image, new_image, 0, 0)",
+        "peekOfCode": "output_image = Image.new(\"RGBA\", new_image.size, (0, 0, 0, 0))\n# Outline adding\noutput_image = paste_images(output_image, outline_image, 1, 1)# up left \noutput_image = paste_images(output_image, outline_image, 3, 1)# up right\noutput_image = paste_images(output_image, outline_image, 3, 3)# down right\noutput_image = paste_images(output_image, outline_image, 1, 3)# down left\noutput_image = paste_images(output_image, outline_image, 2, 1)# up\noutput_image = paste_images(output_image, outline_image, 2, 3)# down\noutput_image = paste_images(output_image, outline_image, 1, 2)# left\noutput_image = paste_images(output_image, outline_image, 3, 2)# right",
         "detail": "main",
         "documentation": {}
     },
@@ -111,7 +138,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "output_image = paste_images(output_image, outline_image, 1, 1)#up left \noutput_image = paste_images(output_image, outline_image, 3, 1)#up right\noutput_image = paste_images(output_image, outline_image, 3, 3)#down right\noutput_image = paste_images(output_image, outline_image, 1, 3)#down left\noutput_image = paste_images(output_image, outline_image, 2, 1)#up\noutput_image = paste_images(output_image, outline_image, 2, 3)#down\noutput_image = paste_images(output_image, outline_image, 1, 2)#left\noutput_image = paste_images(output_image, outline_image, 3, 2)#right\noutput_image = paste_images(output_image, new_image, 0, 0)\n#TODO: slope mask must be a rectangle",
+        "peekOfCode": "output_image = paste_images(output_image, outline_image, 1, 1)# up left \noutput_image = paste_images(output_image, outline_image, 3, 1)# up right\noutput_image = paste_images(output_image, outline_image, 3, 3)# down right\noutput_image = paste_images(output_image, outline_image, 1, 3)# down left\noutput_image = paste_images(output_image, outline_image, 2, 1)# up\noutput_image = paste_images(output_image, outline_image, 2, 3)# down\noutput_image = paste_images(output_image, outline_image, 1, 2)# left\noutput_image = paste_images(output_image, outline_image, 3, 2)# right\noutput_image = paste_images(output_image, new_image, 0, 0)\noutput_image.save(\"output1.png\")",
         "detail": "main",
         "documentation": {}
     },
@@ -120,7 +147,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "output_image = paste_images(output_image, outline_image, 3, 1)#up right\noutput_image = paste_images(output_image, outline_image, 3, 3)#down right\noutput_image = paste_images(output_image, outline_image, 1, 3)#down left\noutput_image = paste_images(output_image, outline_image, 2, 1)#up\noutput_image = paste_images(output_image, outline_image, 2, 3)#down\noutput_image = paste_images(output_image, outline_image, 1, 2)#left\noutput_image = paste_images(output_image, outline_image, 3, 2)#right\noutput_image = paste_images(output_image, new_image, 0, 0)\n#TODO: slope mask must be a rectangle\noutput_image.save(\"output1.png\")",
+        "peekOfCode": "output_image = paste_images(output_image, outline_image, 3, 1)# up right\noutput_image = paste_images(output_image, outline_image, 3, 3)# down right\noutput_image = paste_images(output_image, outline_image, 1, 3)# down left\noutput_image = paste_images(output_image, outline_image, 2, 1)# up\noutput_image = paste_images(output_image, outline_image, 2, 3)# down\noutput_image = paste_images(output_image, outline_image, 1, 2)# left\noutput_image = paste_images(output_image, outline_image, 3, 2)# right\noutput_image = paste_images(output_image, new_image, 0, 0)\noutput_image.save(\"output1.png\")",
         "detail": "main",
         "documentation": {}
     },
@@ -129,7 +156,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "output_image = paste_images(output_image, outline_image, 3, 3)#down right\noutput_image = paste_images(output_image, outline_image, 1, 3)#down left\noutput_image = paste_images(output_image, outline_image, 2, 1)#up\noutput_image = paste_images(output_image, outline_image, 2, 3)#down\noutput_image = paste_images(output_image, outline_image, 1, 2)#left\noutput_image = paste_images(output_image, outline_image, 3, 2)#right\noutput_image = paste_images(output_image, new_image, 0, 0)\n#TODO: slope mask must be a rectangle\noutput_image.save(\"output1.png\")",
+        "peekOfCode": "output_image = paste_images(output_image, outline_image, 3, 3)# down right\noutput_image = paste_images(output_image, outline_image, 1, 3)# down left\noutput_image = paste_images(output_image, outline_image, 2, 1)# up\noutput_image = paste_images(output_image, outline_image, 2, 3)# down\noutput_image = paste_images(output_image, outline_image, 1, 2)# left\noutput_image = paste_images(output_image, outline_image, 3, 2)# right\noutput_image = paste_images(output_image, new_image, 0, 0)\noutput_image.save(\"output1.png\")",
         "detail": "main",
         "documentation": {}
     },
@@ -138,7 +165,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "output_image = paste_images(output_image, outline_image, 1, 3)#down left\noutput_image = paste_images(output_image, outline_image, 2, 1)#up\noutput_image = paste_images(output_image, outline_image, 2, 3)#down\noutput_image = paste_images(output_image, outline_image, 1, 2)#left\noutput_image = paste_images(output_image, outline_image, 3, 2)#right\noutput_image = paste_images(output_image, new_image, 0, 0)\n#TODO: slope mask must be a rectangle\noutput_image.save(\"output1.png\")",
+        "peekOfCode": "output_image = paste_images(output_image, outline_image, 1, 3)# down left\noutput_image = paste_images(output_image, outline_image, 2, 1)# up\noutput_image = paste_images(output_image, outline_image, 2, 3)# down\noutput_image = paste_images(output_image, outline_image, 1, 2)# left\noutput_image = paste_images(output_image, outline_image, 3, 2)# right\noutput_image = paste_images(output_image, new_image, 0, 0)\noutput_image.save(\"output1.png\")",
         "detail": "main",
         "documentation": {}
     },
@@ -147,7 +174,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "output_image = paste_images(output_image, outline_image, 2, 1)#up\noutput_image = paste_images(output_image, outline_image, 2, 3)#down\noutput_image = paste_images(output_image, outline_image, 1, 2)#left\noutput_image = paste_images(output_image, outline_image, 3, 2)#right\noutput_image = paste_images(output_image, new_image, 0, 0)\n#TODO: slope mask must be a rectangle\noutput_image.save(\"output1.png\")",
+        "peekOfCode": "output_image = paste_images(output_image, outline_image, 2, 1)# up\noutput_image = paste_images(output_image, outline_image, 2, 3)# down\noutput_image = paste_images(output_image, outline_image, 1, 2)# left\noutput_image = paste_images(output_image, outline_image, 3, 2)# right\noutput_image = paste_images(output_image, new_image, 0, 0)\noutput_image.save(\"output1.png\")",
         "detail": "main",
         "documentation": {}
     },
@@ -156,7 +183,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "output_image = paste_images(output_image, outline_image, 2, 3)#down\noutput_image = paste_images(output_image, outline_image, 1, 2)#left\noutput_image = paste_images(output_image, outline_image, 3, 2)#right\noutput_image = paste_images(output_image, new_image, 0, 0)\n#TODO: slope mask must be a rectangle\noutput_image.save(\"output1.png\")",
+        "peekOfCode": "output_image = paste_images(output_image, outline_image, 2, 3)# down\noutput_image = paste_images(output_image, outline_image, 1, 2)# left\noutput_image = paste_images(output_image, outline_image, 3, 2)# right\noutput_image = paste_images(output_image, new_image, 0, 0)\noutput_image.save(\"output1.png\")",
         "detail": "main",
         "documentation": {}
     },
@@ -165,7 +192,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "output_image = paste_images(output_image, outline_image, 1, 2)#left\noutput_image = paste_images(output_image, outline_image, 3, 2)#right\noutput_image = paste_images(output_image, new_image, 0, 0)\n#TODO: slope mask must be a rectangle\noutput_image.save(\"output1.png\")",
+        "peekOfCode": "output_image = paste_images(output_image, outline_image, 1, 2)# left\noutput_image = paste_images(output_image, outline_image, 3, 2)# right\noutput_image = paste_images(output_image, new_image, 0, 0)\noutput_image.save(\"output1.png\")",
         "detail": "main",
         "documentation": {}
     },
@@ -174,7 +201,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "output_image = paste_images(output_image, outline_image, 3, 2)#right\noutput_image = paste_images(output_image, new_image, 0, 0)\n#TODO: slope mask must be a rectangle\noutput_image.save(\"output1.png\")",
+        "peekOfCode": "output_image = paste_images(output_image, outline_image, 3, 2)# right\noutput_image = paste_images(output_image, new_image, 0, 0)\noutput_image.save(\"output1.png\")",
         "detail": "main",
         "documentation": {}
     },
@@ -183,7 +210,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "output_image = paste_images(output_image, new_image, 0, 0)\n#TODO: slope mask must be a rectangle\noutput_image.save(\"output1.png\")",
+        "peekOfCode": "output_image = paste_images(output_image, new_image, 0, 0)\noutput_image.save(\"output1.png\")",
         "detail": "main",
         "documentation": {}
     }
