@@ -37,14 +37,20 @@ for i in range(num_tiles_horizontal):
         new_image.paste(tile, (new_x, new_y))
 
 ox, oy = new_image.size
-outline_image = new_image.crop((2, 2, ox-4, oy-4))
+outline_image = new_image.crop((2, 2, ox-2, oy-2))
 
 output_image = Image.new("RGBA", new_image.size, (0, 0, 0, 0))
+
+output_image = paste_images(output_image, outline_image, 1, 1)#up left 
+output_image = paste_images(output_image, outline_image, 3, 1)#up right
+output_image = paste_images(output_image, outline_image, 3, 3)#down right
+output_image = paste_images(output_image, outline_image, 1, 3)#down left
 
 output_image = paste_images(output_image, outline_image, 2, 1)#up
 output_image = paste_images(output_image, outline_image, 2, 3)#down
 output_image = paste_images(output_image, outline_image, 1, 2)#left
 output_image = paste_images(output_image, outline_image, 3, 2)#right
+
 output_image = paste_images(output_image, new_image, 0, 0)
 
 #TODO: slope mask must be a rectangle
