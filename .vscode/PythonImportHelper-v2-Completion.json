@@ -19,199 +19,37 @@
     {
         "label": "paste_images",
         "kind": 2,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "def paste_images(background, paste, x, y):\n    new_image = Image.new(\"RGBA\", background.size)\n    new_image.paste(background, (0, 0))\n    new_image.paste(paste, (x, y), mask=paste)\n    return new_image\n# Open the tileset input image\nimage = Image.open(\"input.png\")\ntile_size = 16\nspacing = 2\ntotal_tile_size = tile_size + spacing",
-        "detail": "main",
+        "importPath": "program",
+        "description": "program",
+        "peekOfCode": "def paste_images(background, paste, x, y):\n    new_image = Image.new(\"RGBA\", background.size)\n    new_image.paste(background, (0, 0))\n    new_image.paste(paste, (x, y), mask=paste)\n    return new_image\ndef program_process_tileset(image, tile_size, spacing):\n    total_tile_size = tile_size + spacing\n    num_tiles_horizontal = image.width // tile_size\n    num_tiles_vertical = image.height // tile_size\n    print(num_tiles_vertical)",
+        "detail": "program",
         "documentation": {}
     },
     {
-        "label": "image",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "image = Image.open(\"input.png\")\ntile_size = 16\nspacing = 2\ntotal_tile_size = tile_size + spacing\nnum_tiles_horizontal = image.width // tile_size\nnum_tiles_vertical = image.height // tile_size\nprint(num_tiles_vertical)\nprint(num_tiles_horizontal)\nnew_width = (num_tiles_horizontal * (tile_size + spacing)) + spacing\nnew_height = (num_tiles_vertical * (tile_size + spacing)) + spacing",
-        "detail": "main",
+        "label": "program_process_tileset",
+        "kind": 2,
+        "importPath": "program",
+        "description": "program",
+        "peekOfCode": "def program_process_tileset(image, tile_size, spacing):\n    total_tile_size = tile_size + spacing\n    num_tiles_horizontal = image.width // tile_size\n    num_tiles_vertical = image.height // tile_size\n    print(num_tiles_vertical)\n    print(num_tiles_horizontal)\n    new_width = (num_tiles_horizontal * (tile_size + spacing)) + spacing\n    new_height = (num_tiles_vertical * (tile_size + spacing)) + spacing\n    spacing_image = Image.new(\"RGBA\", (new_width, new_height))\n    for i in range(num_tiles_horizontal):",
+        "detail": "program",
         "documentation": {}
     },
     {
-        "label": "tile_size",
+        "label": "image_in",
         "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "tile_size = 16\nspacing = 2\ntotal_tile_size = tile_size + spacing\nnum_tiles_horizontal = image.width // tile_size\nnum_tiles_vertical = image.height // tile_size\nprint(num_tiles_vertical)\nprint(num_tiles_horizontal)\nnew_width = (num_tiles_horizontal * (tile_size + spacing)) + spacing\nnew_height = (num_tiles_vertical * (tile_size + spacing)) + spacing\nnew_image = Image.new(\"RGBA\", (new_width, new_height))",
-        "detail": "main",
+        "importPath": "program",
+        "description": "program",
+        "peekOfCode": "image_in = Image.open(\"input.png\")\nimage_out = program_process_tileset(image_in, 16, 2)\nimage_out.save(\"output1.png\")",
+        "detail": "program",
         "documentation": {}
     },
     {
-        "label": "spacing",
+        "label": "image_out",
         "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "spacing = 2\ntotal_tile_size = tile_size + spacing\nnum_tiles_horizontal = image.width // tile_size\nnum_tiles_vertical = image.height // tile_size\nprint(num_tiles_vertical)\nprint(num_tiles_horizontal)\nnew_width = (num_tiles_horizontal * (tile_size + spacing)) + spacing\nnew_height = (num_tiles_vertical * (tile_size + spacing)) + spacing\nnew_image = Image.new(\"RGBA\", (new_width, new_height))\nfor i in range(num_tiles_horizontal):",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "total_tile_size",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "total_tile_size = tile_size + spacing\nnum_tiles_horizontal = image.width // tile_size\nnum_tiles_vertical = image.height // tile_size\nprint(num_tiles_vertical)\nprint(num_tiles_horizontal)\nnew_width = (num_tiles_horizontal * (tile_size + spacing)) + spacing\nnew_height = (num_tiles_vertical * (tile_size + spacing)) + spacing\nnew_image = Image.new(\"RGBA\", (new_width, new_height))\nfor i in range(num_tiles_horizontal):\n    for j in range(num_tiles_vertical):",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "num_tiles_horizontal",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "num_tiles_horizontal = image.width // tile_size\nnum_tiles_vertical = image.height // tile_size\nprint(num_tiles_vertical)\nprint(num_tiles_horizontal)\nnew_width = (num_tiles_horizontal * (tile_size + spacing)) + spacing\nnew_height = (num_tiles_vertical * (tile_size + spacing)) + spacing\nnew_image = Image.new(\"RGBA\", (new_width, new_height))\nfor i in range(num_tiles_horizontal):\n    for j in range(num_tiles_vertical):\n        x = i * tile_size",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "num_tiles_vertical",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "num_tiles_vertical = image.height // tile_size\nprint(num_tiles_vertical)\nprint(num_tiles_horizontal)\nnew_width = (num_tiles_horizontal * (tile_size + spacing)) + spacing\nnew_height = (num_tiles_vertical * (tile_size + spacing)) + spacing\nnew_image = Image.new(\"RGBA\", (new_width, new_height))\nfor i in range(num_tiles_horizontal):\n    for j in range(num_tiles_vertical):\n        x = i * tile_size\n        y = j * tile_size",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "new_width",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "new_width = (num_tiles_horizontal * (tile_size + spacing)) + spacing\nnew_height = (num_tiles_vertical * (tile_size + spacing)) + spacing\nnew_image = Image.new(\"RGBA\", (new_width, new_height))\nfor i in range(num_tiles_horizontal):\n    for j in range(num_tiles_vertical):\n        x = i * tile_size\n        y = j * tile_size\n        tile = image.crop((x, y, x + tile_size, y + tile_size))\n        new_x = (i * (tile_size + spacing)) + spacing\n        new_y = (j * (tile_size + spacing)) + spacing",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "new_height",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "new_height = (num_tiles_vertical * (tile_size + spacing)) + spacing\nnew_image = Image.new(\"RGBA\", (new_width, new_height))\nfor i in range(num_tiles_horizontal):\n    for j in range(num_tiles_vertical):\n        x = i * tile_size\n        y = j * tile_size\n        tile = image.crop((x, y, x + tile_size, y + tile_size))\n        new_x = (i * (tile_size + spacing)) + spacing\n        new_y = (j * (tile_size + spacing)) + spacing\n        new_image.paste(tile, (new_x, new_y))",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "new_image",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "new_image = Image.new(\"RGBA\", (new_width, new_height))\nfor i in range(num_tiles_horizontal):\n    for j in range(num_tiles_vertical):\n        x = i * tile_size\n        y = j * tile_size\n        tile = image.crop((x, y, x + tile_size, y + tile_size))\n        new_x = (i * (tile_size + spacing)) + spacing\n        new_y = (j * (tile_size + spacing)) + spacing\n        new_image.paste(tile, (new_x, new_y))\nox, oy = new_image.size",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "outline_image",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "outline_image = new_image.crop((spacing, spacing, ox-spacing, oy-spacing))\noutline_image.save(\"outline.png\")\ntiles_with_empty_pixels = []\nif not os.path.exists(\"tiles\"):\n    os.makedirs(\"tiles\")\n# Iterate over each tile\nfor j in range(num_tiles_vertical):\n    for i in range(num_tiles_horizontal):\n        x = i * total_tile_size\n        y = j * total_tile_size",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "tiles_with_empty_pixels",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "tiles_with_empty_pixels = []\nif not os.path.exists(\"tiles\"):\n    os.makedirs(\"tiles\")\n# Iterate over each tile\nfor j in range(num_tiles_vertical):\n    for i in range(num_tiles_horizontal):\n        x = i * total_tile_size\n        y = j * total_tile_size\n        tile = outline_image.crop((x, y, x + tile_size, y + tile_size))\n        tile.save(f\"tiles/tile_{int(x/total_tile_size)}_{int(y/total_tile_size)}.png\")",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "output_image",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "output_image = Image.new(\"RGBA\", new_image.size, (0, 0, 0, 0))\n# Outline adding\noutput_image = paste_images(output_image, outline_image, 1, 1)# up left \noutput_image = paste_images(output_image, outline_image, 3, 1)# up right\noutput_image = paste_images(output_image, outline_image, 3, 3)# down right\noutput_image = paste_images(output_image, outline_image, 1, 3)# down left\noutput_image = paste_images(output_image, outline_image, 2, 1)# up\noutput_image = paste_images(output_image, outline_image, 2, 3)# down\noutput_image = paste_images(output_image, outline_image, 1, 2)# left\noutput_image = paste_images(output_image, outline_image, 3, 2)# right",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "output_image",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "output_image = paste_images(output_image, outline_image, 1, 1)# up left \noutput_image = paste_images(output_image, outline_image, 3, 1)# up right\noutput_image = paste_images(output_image, outline_image, 3, 3)# down right\noutput_image = paste_images(output_image, outline_image, 1, 3)# down left\noutput_image = paste_images(output_image, outline_image, 2, 1)# up\noutput_image = paste_images(output_image, outline_image, 2, 3)# down\noutput_image = paste_images(output_image, outline_image, 1, 2)# left\noutput_image = paste_images(output_image, outline_image, 3, 2)# right\noutput_image = paste_images(output_image, new_image, 0, 0)\noutput_image.save(\"output1.png\")",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "output_image",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "output_image = paste_images(output_image, outline_image, 3, 1)# up right\noutput_image = paste_images(output_image, outline_image, 3, 3)# down right\noutput_image = paste_images(output_image, outline_image, 1, 3)# down left\noutput_image = paste_images(output_image, outline_image, 2, 1)# up\noutput_image = paste_images(output_image, outline_image, 2, 3)# down\noutput_image = paste_images(output_image, outline_image, 1, 2)# left\noutput_image = paste_images(output_image, outline_image, 3, 2)# right\noutput_image = paste_images(output_image, new_image, 0, 0)\noutput_image.save(\"output1.png\")",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "output_image",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "output_image = paste_images(output_image, outline_image, 3, 3)# down right\noutput_image = paste_images(output_image, outline_image, 1, 3)# down left\noutput_image = paste_images(output_image, outline_image, 2, 1)# up\noutput_image = paste_images(output_image, outline_image, 2, 3)# down\noutput_image = paste_images(output_image, outline_image, 1, 2)# left\noutput_image = paste_images(output_image, outline_image, 3, 2)# right\noutput_image = paste_images(output_image, new_image, 0, 0)\noutput_image.save(\"output1.png\")",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "output_image",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "output_image = paste_images(output_image, outline_image, 1, 3)# down left\noutput_image = paste_images(output_image, outline_image, 2, 1)# up\noutput_image = paste_images(output_image, outline_image, 2, 3)# down\noutput_image = paste_images(output_image, outline_image, 1, 2)# left\noutput_image = paste_images(output_image, outline_image, 3, 2)# right\noutput_image = paste_images(output_image, new_image, 0, 0)\noutput_image.save(\"output1.png\")",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "output_image",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "output_image = paste_images(output_image, outline_image, 2, 1)# up\noutput_image = paste_images(output_image, outline_image, 2, 3)# down\noutput_image = paste_images(output_image, outline_image, 1, 2)# left\noutput_image = paste_images(output_image, outline_image, 3, 2)# right\noutput_image = paste_images(output_image, new_image, 0, 0)\noutput_image.save(\"output1.png\")",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "output_image",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "output_image = paste_images(output_image, outline_image, 2, 3)# down\noutput_image = paste_images(output_image, outline_image, 1, 2)# left\noutput_image = paste_images(output_image, outline_image, 3, 2)# right\noutput_image = paste_images(output_image, new_image, 0, 0)\noutput_image.save(\"output1.png\")",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "output_image",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "output_image = paste_images(output_image, outline_image, 1, 2)# left\noutput_image = paste_images(output_image, outline_image, 3, 2)# right\noutput_image = paste_images(output_image, new_image, 0, 0)\noutput_image.save(\"output1.png\")",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "output_image",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "output_image = paste_images(output_image, outline_image, 3, 2)# right\noutput_image = paste_images(output_image, new_image, 0, 0)\noutput_image.save(\"output1.png\")",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
-        "label": "output_image",
-        "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "output_image = paste_images(output_image, new_image, 0, 0)\noutput_image.save(\"output1.png\")",
-        "detail": "main",
+        "importPath": "program",
+        "description": "program",
+        "peekOfCode": "image_out = program_process_tileset(image_in, 16, 2)\nimage_out.save(\"output1.png\")",
+        "detail": "program",
         "documentation": {}
     }
 ]
