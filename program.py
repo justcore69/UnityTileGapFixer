@@ -79,6 +79,16 @@ def program_process_tileset(image, tile_size, spacing):
     output_image = paste_images(output_image, outline_image, 1, 2)# left
     output_image = paste_images(output_image, outline_image, 3, 2)# right
 
+    # Clear up the tiles
+
+    for i in range(num_tiles_horizontal):
+        for j in range(num_tiles_vertical):
+            x = i * tile_size
+            y = j * tile_size
+            tile = Image.new("RGBA", (tile_size, tile_size), (0,0,0,0))
+            new_x = (i * (tile_size + spacing)) + spacing
+            new_y = (j * (tile_size + spacing)) + spacing
+            output_image.paste(tile, (new_x, new_y))
 
     output_image = paste_images(output_image, spacing_image, 0, 0)
 
